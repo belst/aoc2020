@@ -1,13 +1,13 @@
 use aoc_runner_derive::{aoc, aoc_generator};
-use std::ops::Add;
 use std::collections::HashSet;
+use std::ops::Add;
 
 #[derive(Debug, Hash, PartialEq, Eq, PartialOrd)]
 struct Coord(usize, usize);
 #[derive(Debug)]
-pub struct Forest{
+pub struct Forest {
     trees: HashSet<Coord>,
-    size: Coord
+    size: Coord,
 }
 
 impl Forest {
@@ -50,32 +50,37 @@ pub fn generate(input: &str) -> Forest {
             if c == '#' {
                 hs.insert(Coord(j, i));
             }
-            
         }
     }
 
     Forest {
         trees: hs,
-        size: Coord(x, y)
+        size: Coord(x, y),
     }
 }
 
-
 #[aoc(day3, part1)]
 pub fn part1(input: &Forest) -> usize {
-    (0..input.size.1).filter(|n| input.is_tree(&Coord(n * 3, n * 1))).count()
+    (0..input.size.1)
+        .filter(|n| input.is_tree(&Coord(n * 3, n * 1)))
+        .count()
 }
 
 #[aoc(day3, part2)]
 pub fn part2(input: &Forest) -> usize {
-    let steps = [Coord(1, 1), Coord(3, 1), Coord(5, 1), Coord(7, 1), Coord(1, 2)];
+    let steps = [
+        Coord(1, 1),
+        Coord(3, 1),
+        Coord(5, 1),
+        Coord(7, 1),
+        Coord(1, 2),
+    ];
     steps.iter().map(|c| input.count(c)).product()
 }
 
 #[test]
 fn testp1() {
-    const INPUT: &'static str = 
-"..##.......
+    const INPUT: &'static str = "..##.......
 #...#...#..
 .#....#..#.
 ..#.#...#.#
@@ -97,8 +102,7 @@ fn testp1() {
 
 #[test]
 fn testp2() {
-    const INPUT: &'static str = 
-"..##.......
+    const INPUT: &'static str = "..##.......
 #...#...#..
 .#....#..#.
 ..#.#...#.#
