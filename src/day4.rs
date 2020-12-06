@@ -21,15 +21,17 @@ impl Passport {
             .filter(|v| (1920..=2002).contains(v))
             .and(self.iyr.parse().ok().filter(|v| (2010..=2020).contains(v)))
             .and(self.eyr.parse().ok().filter(|v| (2020..=2030).contains(v)))
-            .and(match &self.hgt.trim_end_matches("cm").trim_end_matches("in") {
-                cm if self.hgt.ends_with("cm") => {
-                    cm.parse().ok().filter(|v| (150..=193).contains(v))
-                }
-                inch if self.hgt.ends_with("in") => {
-                    inch.parse().ok().filter(|v| (59..=76).contains(v))
-                }
-                _ => None,
-            })
+            .and(
+                match &self.hgt.trim_end_matches("cm").trim_end_matches("in") {
+                    cm if self.hgt.ends_with("cm") => {
+                        cm.parse().ok().filter(|v| (150..=193).contains(v))
+                    }
+                    inch if self.hgt.ends_with("in") => {
+                        inch.parse().ok().filter(|v| (59..=76).contains(v))
+                    }
+                    _ => None,
+                },
+            )
             .and(if self.hcl.starts_with('#') && self.hcl[1..].len() == 6 {
                 usize::from_str_radix(&self.hcl[1..], 16).ok()
             } else {
@@ -126,7 +128,6 @@ iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719
     let pps = dbg!(generate(INPUT));
 
     assert_eq!(part2(&pps), 4);
-    
 }
 
 #[test]
@@ -149,6 +150,4 @@ pid:3556412378 byr:2007
     let pps = dbg!(generate(INPUT));
 
     assert_eq!(part2(&pps), 0);
-    
 }
-
