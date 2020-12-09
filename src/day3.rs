@@ -1,4 +1,3 @@
-
 use std::collections::HashSet;
 use std::ops::Add;
 
@@ -24,7 +23,7 @@ impl Forest {
             if self.is_tree(&pos) {
                 c += 1;
             }
-            pos = &pos + &step;
+            pos = &pos + step;
         }
         c
     }
@@ -58,13 +57,11 @@ pub fn generate(input: &str) -> Forest {
     }
 }
 
-
 pub fn part1(input: &Forest) -> usize {
     (0..input.size.1)
-        .filter(|n| input.is_tree(&Coord(n * 3, n * 1)))
+        .filter(|n| input.is_tree(&Coord(n * 3, *n)))
         .count()
 }
-
 
 pub fn part2(input: &Forest) -> usize {
     let steps = [

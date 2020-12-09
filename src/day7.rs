@@ -10,7 +10,7 @@ pub fn generatep2(input: &str) -> BagTree {
     for l in input.lines() {
         let mut childs = vec![];
         let color: String = l.split_whitespace().take(2).collect();
-        let childrenstr = l.split(" contain ").skip(1).next().unwrap();
+        let childrenstr = l.split(" contain ").nth(1).unwrap();
         for c in childrenstr.split(", ") {
             let nu = c.split_whitespace().next().unwrap();
             if nu == "no" {

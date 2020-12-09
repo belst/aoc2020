@@ -1,4 +1,3 @@
-
 pub fn input_gen(input: &str) -> Vec<usize> {
     input
         .lines()
@@ -15,7 +14,8 @@ pub fn solve_part1(input: &[usize]) -> usize {
                 .filter(move |&m| n + m == 2020)
                 .map(move |&m| n * m)
         })
-        .next().unwrap()
+        .next()
+        .unwrap()
 }
 
 pub fn solve_part2(input: &[usize]) -> usize {
@@ -32,5 +32,6 @@ pub fn solve_part2(input: &[usize]) -> usize {
                         .map(move |k| n * m * k)
                 })
         })
-        .next().unwrap()
+        .next()
+        .unwrap()
 }

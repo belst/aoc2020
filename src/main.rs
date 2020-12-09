@@ -1,4 +1,3 @@
-
 mod day1;
 mod day2;
 mod day3;
@@ -7,6 +6,7 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 
 aoc::main! {
     year 2020;
@@ -18,4 +18,5 @@ aoc::main! {
     day6 : generate  => part1, part2;
     day7             => part1, part2;
     day8 : generate  => part1, part2;
+    day9 : generate  => part1, part2;
 }

@@ -21,7 +21,6 @@ impl PasswordReq {
     }
 }
 
-
 pub fn input_gen(input: &str) -> Vec<PasswordReq> {
     input
         .lines()
@@ -41,11 +40,9 @@ pub fn input_gen(input: &str) -> Vec<PasswordReq> {
         .collect()
 }
 
-
 pub fn part1(input: &[PasswordReq]) -> usize {
     input.iter().filter(|p| p.valid1()).count()
 }
-
 
 pub fn part2(input: &[PasswordReq]) -> usize {
     input.iter().filter(|p| p.valid2()).count()

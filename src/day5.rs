@@ -1,4 +1,3 @@
-
 pub fn generate(input: &str) -> Vec<usize> {
     let mut ret: Vec<usize> = input
         .lines()
@@ -28,11 +27,9 @@ pub fn generate(input: &str) -> Vec<usize> {
     ret
 }
 
-
 pub fn part1(input: &[usize]) -> usize {
     *input.iter().last().unwrap()
 }
-
 
 pub fn part2(input: &[usize]) -> usize {
     let mut lastid = input[0] - 1;
