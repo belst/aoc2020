@@ -1,6 +1,4 @@
-use aoc_runner_derive::{aoc, aoc_generator};
 
-#[aoc_generator(day5)]
 pub fn generate(input: &str) -> Vec<usize> {
     let mut ret: Vec<usize> = input
         .lines()
@@ -30,12 +28,12 @@ pub fn generate(input: &str) -> Vec<usize> {
     ret
 }
 
-#[aoc(day5, part1)]
+
 pub fn part1(input: &[usize]) -> usize {
     *input.iter().last().unwrap()
 }
 
-#[aoc(day5, part2)]
+
 pub fn part2(input: &[usize]) -> usize {
     let mut lastid = input[0] - 1;
     for &s in input {

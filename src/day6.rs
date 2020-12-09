@@ -1,7 +1,5 @@
-use aoc_runner_derive::{aoc, aoc_generator};
 use std::collections::HashMap;
 
-#[aoc_generator(day6)]
 pub fn generate(input: &str) -> Vec<(usize, HashMap<char, usize>)> {
     let mut ret = vec![];
 
@@ -19,12 +17,10 @@ pub fn generate(input: &str) -> Vec<(usize, HashMap<char, usize>)> {
     ret
 }
 
-#[aoc(day6, part1)]
 pub fn part1(input: &[(usize, HashMap<char, usize>)]) -> usize {
     input.iter().map(|(_, hm)| hm.len()).sum()
 }
 
-#[aoc(day6, part2)]
 pub fn part2(input: &[(usize, HashMap<char, usize>)]) -> usize {
     input
         .iter()

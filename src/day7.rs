@@ -1,10 +1,8 @@
-use aoc_runner_derive::{aoc, aoc_generator};
 use std::cell::RefCell;
 use std::collections::{HashMap, HashSet};
 
 type BagTree = HashMap<String, Vec<(usize, String)>>;
 
-#[aoc_generator(day7, part2)]
 pub fn generatep2(input: &str) -> BagTree {
     // vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.
     // bright white bags contain 1 shiny gold bag.
@@ -29,7 +27,6 @@ pub fn generatep2(input: &str) -> BagTree {
 
 type InvertedBagTree = HashMap<String, HashSet<String>>;
 
-#[aoc_generator(day7, part1)]
 pub fn generatep1(input: &str) -> InvertedBagTree {
     let mut hm: InvertedBagTree = HashMap::new();
 
@@ -55,10 +52,10 @@ fn go(hm: &InvertedBagTree, current: &str, seen: &RefCell<HashSet<String>>) {
     }
 }
 
-#[aoc(day7, part1)]
-pub fn part1(input: &InvertedBagTree) -> usize {
+pub fn part1(input: &str) -> usize {
+    let input = generatep1(input);
     let seen = RefCell::new(HashSet::new());
-    go(input, "shinygold", &seen);
+    go(&input, "shinygold", &seen);
     seen.into_inner().len() - 1
 }
 
@@ -70,9 +67,9 @@ fn go2(hm: &BagTree, current: &str) -> usize {
     }
 }
 
-#[aoc(day7, part2)]
-pub fn part2(input: &BagTree) -> usize {
-    go2(input, "shinygold") - 1
+pub fn part2(input: &str) -> usize {
+    let input = generatep2(input);
+    go2(&input, "shinygold") - 1
 }
 
 #[test]
@@ -87,8 +84,7 @@ vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.
 faded blue bags contain no other bags.
 dotted black bags contain no other bags.";
 
-    let bagtree = generatep1(INPUT);
-    assert_eq!(part1(&bagtree), 4);
+    assert_eq!(part1(&INPUT), 4);
 }
 
 #[test]
@@ -103,8 +99,7 @@ vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.
 faded blue bags contain no other bags.
 dotted black bags contain no other bags.";
 
-    let bagtree = generatep2(INPUT);
-    assert_eq!(part2(&bagtree), 32);
+    assert_eq!(part2(&INPUT), 32);
 }
 
 #[test]
@@ -117,6 +112,5 @@ dark green bags contain 2 dark blue bags.
 dark blue bags contain 2 dark violet bags.
 dark violet bags contain no other bags.";
 
-    let bagtree = generatep2(INPUT);
-    assert_eq!(part2(&bagtree), 126);
+    assert_eq!(part2(&INPUT), 126);
 }

@@ -1,5 +1,3 @@
-use aoc_runner_derive::{aoc, aoc_generator};
-
 #[derive(Debug)]
 pub struct PasswordReq {
     val: char,
@@ -23,7 +21,7 @@ impl PasswordReq {
     }
 }
 
-#[aoc_generator(day2)]
+
 pub fn input_gen(input: &str) -> Vec<PasswordReq> {
     input
         .lines()
@@ -43,12 +41,12 @@ pub fn input_gen(input: &str) -> Vec<PasswordReq> {
         .collect()
 }
 
-#[aoc(day2, part1)]
+
 pub fn part1(input: &[PasswordReq]) -> usize {
     input.iter().filter(|p| p.valid1()).count()
 }
 
-#[aoc(day2, part2)]
+
 pub fn part2(input: &[PasswordReq]) -> usize {
     input.iter().filter(|p| p.valid2()).count()
 }

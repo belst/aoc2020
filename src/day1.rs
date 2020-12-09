@@ -1,6 +1,4 @@
-use aoc_runner_derive::{aoc, aoc_generator};
 
-#[aoc_generator(day1)]
 pub fn input_gen(input: &str) -> Vec<usize> {
     input
         .lines()
@@ -8,8 +6,7 @@ pub fn input_gen(input: &str) -> Vec<usize> {
         .collect()
 }
 
-#[aoc(day1, part1)]
-pub fn solve_part1(input: &[usize]) -> Option<usize> {
+pub fn solve_part1(input: &[usize]) -> usize {
     input
         .iter()
         .flat_map(|n| {
@@ -18,11 +15,10 @@ pub fn solve_part1(input: &[usize]) -> Option<usize> {
                 .filter(move |&m| n + m == 2020)
                 .map(move |&m| n * m)
         })
-        .next()
+        .next().unwrap()
 }
 
-#[aoc(day1, part2)]
-pub fn solve_part2(input: &[usize]) -> Option<usize> {
+pub fn solve_part2(input: &[usize]) -> usize {
     input
         .iter()
         .flat_map(|n| {
@@ -36,5 +32,5 @@ pub fn solve_part2(input: &[usize]) -> Option<usize> {
                         .map(move |k| n * m * k)
                 })
         })
-        .next()
+        .next().unwrap()
 }

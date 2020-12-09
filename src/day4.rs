@@ -1,4 +1,3 @@
-use aoc_runner_derive::{aoc, aoc_generator};
 use derive_builder::Builder;
 
 #[derive(Debug, Builder)]
@@ -74,17 +73,14 @@ fn parse(input: &str) -> Option<Passport> {
     ppb.build().ok()
 }
 
-#[aoc_generator(day4)]
 pub fn generate(input: &str) -> Vec<Passport> {
     input.split("\n\n").filter_map(parse).collect()
 }
 
-#[aoc(day4, part1)]
 pub fn part1(input: &[Passport]) -> usize {
     input.len()
 }
 
-#[aoc(day4, part2)]
 pub fn part2(input: &[Passport]) -> usize {
     input.iter().filter(|pp| pp.valid()).count()
 }

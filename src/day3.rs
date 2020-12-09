@@ -1,4 +1,4 @@
-use aoc_runner_derive::{aoc, aoc_generator};
+
 use std::collections::HashSet;
 use std::ops::Add;
 
@@ -38,7 +38,6 @@ impl Add for &Coord {
     }
 }
 
-#[aoc_generator(day3)]
 pub fn generate(input: &str) -> Forest {
     let mut hs = HashSet::new();
 
@@ -59,14 +58,14 @@ pub fn generate(input: &str) -> Forest {
     }
 }
 
-#[aoc(day3, part1)]
+
 pub fn part1(input: &Forest) -> usize {
     (0..input.size.1)
         .filter(|n| input.is_tree(&Coord(n * 3, n * 1)))
         .count()
 }
 
-#[aoc(day3, part2)]
+
 pub fn part2(input: &Forest) -> usize {
     let steps = [
         Coord(1, 1),
