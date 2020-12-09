@@ -25,13 +25,15 @@ pub fn part1(input: &[usize]) -> usize {
 
 fn impl_p2(input: &[usize], number: usize) -> usize {
     for w in 2..input.len() {
-        if let Some(res) = input
+        let (min, max) = input
             .windows(w)
             .find(|&w| w.iter().sum::<usize>() == number)
-        {
-            let (min, max) = res.iter().fold((usize::MAX, usize::MIN), |(min, max), &c| {
+            .into_iter()
+            .flatten()
+            .fold((usize::MAX, usize::MIN), |(min, max), &c| {
                 (c.min(min), c.max(max))
             });
+        if (min, max) != (usize::MAX, usize::MIN) {
             return min + max;
         }
     }
