@@ -30,13 +30,7 @@ fn impl_p2(input: &[usize], number: usize) -> usize {
             .find(|&w| w.iter().sum::<usize>() == number)
         {
             let (min, max) = res.iter().fold((usize::MAX, usize::MIN), |(min, max), &c| {
-                if c < min {
-                    (c, max)
-                } else if max < c {
-                    (min, c)
-                } else {
-                    (min, max)
-                }
+                (c.min(min), c.max(max))
             });
             return min + max;
         }
