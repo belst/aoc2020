@@ -38,7 +38,7 @@ fn iterate(state: &HashMap<Coord, bool>, max: Coord, threshold: usize) -> HashMa
         surrounding2
     };
     let mut ret = state.clone();
-    for (&k, _) in state {
+    for &k in state.keys() {
         match surrounding(k, max, state)
             .iter()
             .filter_map(|c| state.get(c))
@@ -55,7 +55,7 @@ fn iterate(state: &HashMap<Coord, bool>, max: Coord, threshold: usize) -> HashMa
 
 pub fn part1(input: &HashMap<Coord, bool>) -> usize {
     let mut oldstate = input.clone();
-    let max = input.keys().max().unwrap().clone();
+    let max = *input.keys().max().unwrap();
 
     loop {
         let newstate = iterate(&oldstate, max, 4);
@@ -115,7 +115,7 @@ fn surrounding2((x, y): Coord, (xmax, ymax): Coord, state: &HashMap<Coord, bool>
 
 pub fn part2(input: &HashMap<Coord, bool>) -> usize {
     let mut oldstate = input.clone();
-    let max = input.keys().max().unwrap().clone();
+    let max = *input.keys().max().unwrap();
 
     loop {
         let newstate = iterate(&oldstate, max, 5);
