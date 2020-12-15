@@ -1,3 +1,5 @@
+#![feature(str_split_once)]
+
 mod day1;
 mod day10;
 mod day11;
@@ -11,6 +13,7 @@ mod day6;
 mod day7;
 mod day8;
 mod day9;
+mod day14;
 
 aoc_main::main! {
     year 2020;
@@ -27,4 +30,5 @@ aoc_main::main! {
     day11: generate  => part1, part2;
     day12: generate  => part1, part2;
     day13: generate  => part1, part2;
+    day14: generate  => part1, part2;
 }
