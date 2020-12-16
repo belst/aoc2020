@@ -18,13 +18,15 @@ impl Instr {
     fn from_mem_str(input: &str) -> Self {
         assert!(input.starts_with("mem["));
 
-        let (addr, value) = input.strip_prefix("mem[").unwrap().split_once("] = ").unwrap();
+        let (addr, value) = input
+            .strip_prefix("mem[")
+            .unwrap()
+            .split_once("] = ")
+            .unwrap();
 
         Instr::SetMem(addr.parse().unwrap(), value.parse().unwrap())
     }
 }
-
-
 
 // mask = 100X000X100X00XX1010X0001X11XX100110
 // mem[33470] = 43619
@@ -88,7 +90,6 @@ pub fn part2(input: &[Instr]) -> usize {
     state.values().sum()
 }
 
-
 #[cfg(test)]
 mod test {
     const INPUT1: &'static str = "mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
@@ -111,5 +112,4 @@ mem[26] = 1";
         let instrs = super::generate(INPUT2);
         assert_eq!(super::part2(&instrs), 208);
     }
-
 }
