@@ -1,6 +1,7 @@
 #![feature(str_split_once)]
 #![feature(bindings_after_at)]
 #![feature(or_patterns)]
+#![feature(iterator_fold_self)]
 
 mod day1;
 mod day10;
