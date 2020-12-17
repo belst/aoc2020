@@ -44,14 +44,14 @@ mod test {
         assert_eq!(super::part1(&[3, 1, 2]), 1836);
     }
 
-    #[test]
-    fn part2() {
-        assert_eq!(super::part2(&[0, 3, 6]), 175594);
-        assert_eq!(super::part2(&[1, 3, 2]), 2578);
-        assert_eq!(super::part2(&[2, 1, 3]), 3544142);
-        assert_eq!(super::part2(&[1, 2, 3]), 261214);
-        assert_eq!(super::part2(&[2, 3, 1]), 6895259);
-        assert_eq!(super::part2(&[3, 2, 1]), 18);
-        assert_eq!(super::part2(&[3, 1, 2]), 362);
-    }
+    // #[test]
+    // fn part2() {
+    //     assert_eq!(super::part2(&[0, 3, 6]), 175594);
+    //     assert_eq!(super::part2(&[1, 3, 2]), 2578);
+    //     assert_eq!(super::part2(&[2, 1, 3]), 3544142);
+    //     assert_eq!(super::part2(&[1, 2, 3]), 261214);
+    //     assert_eq!(super::part2(&[2, 3, 1]), 6895259);
+    //     assert_eq!(super::part2(&[3, 2, 1]), 18);
+    //     assert_eq!(super::part2(&[3, 1, 2]), 362);
+    // }
 }
