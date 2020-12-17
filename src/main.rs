@@ -1,4 +1,6 @@
 #![feature(str_split_once)]
+#![feature(bindings_after_at)]
+#![feature(or_patterns)]
 
 mod day1;
 mod day10;
@@ -8,6 +10,7 @@ mod day13;
 mod day14;
 mod day15;
 mod day16;
+mod day17;
 mod day2;
 mod day3;
 mod day4;
@@ -35,4 +38,5 @@ aoc_main::main! {
     day14: generate  => part1, part2;
     day15: generate  => part1, part2;
     day16: generate  => part1, part2;
+    day17: generate  => part1, part2;
 }

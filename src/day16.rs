@@ -70,8 +70,8 @@ pub fn part2(input: &Tickets) -> usize {
         .filter(|&v| v.iter().all(|&n| input.valid(n)));
 
     // Initialize with own ticket
-    for i in 0..valid_rules.len() {
-        valid_rules[i].retain(|_, r| rule_valid(&r, input.my_ticket[i]));
+    for (i, v) in valid_rules.iter_mut().enumerate() {
+        v.retain(|_, r| rule_valid(&r, input.my_ticket[i]));
     }
 
     // reduce with valid neighbor tickets
@@ -88,11 +88,11 @@ pub fn part2(input: &Tickets) -> usize {
                 continue;
             }
             let key = valid_rules[i].keys().next().unwrap().clone();
-            for j in 0..valid_rules.len() {
+            for (j, v) in valid_rules.iter_mut().enumerate() {
                 if i == j {
                     continue;
                 }
-                valid_rules[j].remove(&key);
+                v.remove(&key);
             }
         }
     }

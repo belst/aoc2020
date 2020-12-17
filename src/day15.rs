@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 pub fn generate(input: &str) -> Vec<usize> {
-    input.split(",").filter_map(|n| n.parse().ok()).collect()
+    input.split(',').filter_map(|n| n.parse().ok()).collect()
 }
 
 fn solve(input: &[usize], limit: usize) -> usize {
